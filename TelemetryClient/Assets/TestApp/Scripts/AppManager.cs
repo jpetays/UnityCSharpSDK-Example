@@ -8,7 +8,7 @@ namespace TelemetryClient.TestApp.Scripts
 
     public class AppManager : MonoBehaviour
     {
-        private const string githubRepoURL = "https://github.com/TelemetryDeck/UnityCSharpSDK-Example/";
+        private const string githubRepoURL = "https://github.com/jpetays/UnityCSharpSDK-Example";
 
         [Header("Preferences")]
         private bool initializeTelemetryOnAwake = false;
