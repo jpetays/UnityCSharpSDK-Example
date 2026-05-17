@@ -20,11 +20,7 @@ Please see the [README of the TelemetryDeck Unity C# SDK](https://github.com/Tel
 
 You must clone with submodules to receive a working Unity Project:
 
-`git clone https://github.com/TelemetryDeck/UnityCSharpSDK-Example.git --recurse-submodules`
-
-or, with SSH:
-
-`git clone git@github.com:TelemetryDeck/UnityCSharpSDK-Example.git --recurse-submodules`
+`git clone https://github.com/jpetays/UnityCSharpSDK-Example.git --recurse-submodules`
 
 ## License
 
