@@ -20,6 +20,10 @@ MonoBehaviour:
     text: Please visit our website to learn more.
     linkText: TelemetryDeck.com
     url: https://telemetrydeck.com/
+  - heading: Telemetry Dashboard
+    text: 
+    linkText: Open your Telemetry Dashboard
+    url: https://dashboard.telemetrydeck.com/
   - heading: About this Project
     text: "This project contains the TelemetryDeck Unity C# Client and an example
       usage of the API (see TestApp folder).\n To use TelemetryDeck in your own project,
