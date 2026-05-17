@@ -1,11 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 using UnityEngine.UI;
 
 namespace TelemetryClient.TestApp.Scripts
 {
-    using static MyTelemetryStrings;
-
     public class AppManager : MonoBehaviour
     {
         private const string githubRepoURL = "https://github.com/jpetays/UnityCSharpSDK-Example";
@@ -29,9 +28,15 @@ namespace TelemetryClient.TestApp.Scripts
 
         private int numberOfSignalsSentThisSession = 0;
         private bool TelemetryInitialized => TelemetryManager.IsInitialized;
+        private MyTelemetrySettings myTelemetrySettings;
 
         private void Awake()
         {
+            myTelemetrySettings = Resources.Load<MyTelemetrySettings>(nameof(MyTelemetrySettings));
+            if (myTelemetrySettings == null)
+            {
+                myTelemetrySettings = ScriptableObject.CreateInstance<MyTelemetrySettings>();
+            }
             if (initializeTelemetryOnAwake)
                 InitializeTelemetryIfNeeded();
         }
@@ -50,12 +55,18 @@ namespace TelemetryClient.TestApp.Scripts
             if (TelemetryInitialized)
                 return;
 
-            var configuration = new TelemetryManagerConfiguration(TelemetryAppId);
+            if (myTelemetrySettings.showDebugLogs)
+            {
+                Debug.Log($"AppId {myTelemetrySettings.TelemetryAppId}");
+                Debug.Log($"UserId {myTelemetrySettings.GenericUserId}");
+            }
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(myTelemetrySettings.TelemetryAppId), "TelemetryAppId is required");
+            Assert.IsTrue(!string.IsNullOrWhiteSpace(myTelemetrySettings.GenericUserId), "GenericUserId is required");
+            var configuration = new TelemetryManagerConfiguration(myTelemetrySettings.TelemetryAppId);
             // anonymize the telemetry sent entirely by setting a generic user ID
-            configuration.defaultUser = GenericUserId;
-            // mark all signals as testing signals
-            configuration.IsTestMode = true;
-            configuration.showDebugLogs = true;
+            configuration.defaultUser = myTelemetrySettings.GenericUserId;
+            configuration.IsTestMode = myTelemetrySettings.IsTestMode;
+            configuration.showDebugLogs = myTelemetrySettings.showDebugLogs;
             // initialize the TelemetryClient (otherwise we can't send any Signals)
             // you can delay this call to whenever you choose to start sending Signals
             // TelemetryClient will automatically attempt to send a "new session" signal.
@@ -95,7 +106,7 @@ namespace TelemetryClient.TestApp.Scripts
             if (!TelemetryInitialized)
                 return;
 
-            TelemetryManager.SendSignal(SimpleSignalName, clientUser: GenericUserId);
+            TelemetryManager.SendSignal(myTelemetrySettings.SimpleSignalName, clientUser: myTelemetrySettings.GenericUserId);
             numberOfSignalsSentThisSession++;
             UpdateUI();
         }
@@ -111,8 +122,8 @@ namespace TelemetryClient.TestApp.Scripts
 
             var numberString = string.Format("{0:d}", numberOfSignalsSentThisSession);
             var additionalPayload = new Dictionary<string, string>();
-            additionalPayload.Add(SignalsCountName, numberString);
-            TelemetryManager.SendSignal(AdvancedSignalName, clientUser: GenericUserId, additionalPayload);
+            additionalPayload.Add(myTelemetrySettings.SignalsCountName, numberString);
+            TelemetryManager.SendSignal(myTelemetrySettings.AdvancedSignalName, clientUser: myTelemetrySettings.GenericUserId, additionalPayload);
             numberOfSignalsSentThisSession++;
             UpdateUI();
         }
