@@ -26,15 +26,15 @@ MonoBehaviour:
     url: https://dashboard.telemetrydeck.com/
   - heading: About this Project
     text: "This project contains the TelemetryDeck Unity C# Client and an example
-      usage of the API (see TestApp folder).\n To use TelemetryDeck in your own project,
+      usage of the API (see TestApp folder).\nTo use TelemetryDeck in your own project,
       please get the latest release package from GitHub."
     linkText: Get the latest TelemetryClient from GitHub
     url: https://github.com/conath/TelemetryDeck-Unity/releases
   - heading: License
     text: "TelemetryClient is licensed unter a variation of The MIT License, which
-      does not require attribution.\n This means you can use the TelemetryClient
+      does not require attribution.\nThis means you can use the TelemetryClient
       Unity Package or source code in your projects without including the license
-      text (linked below).\n Of course, attribution is very much appreciated. <3"
+      text (linked below).\nOf course, attribution is very much appreciated. <3"
     linkText: View the TelemetryClient license
     url: https://github.com/conath/TelemetryDeck-Unity/blob/6f7ffe12b7aa673358a3f464071e60407c66b599/LICENSE
   - heading: 3rd Party Packages

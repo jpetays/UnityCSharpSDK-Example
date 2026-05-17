@@ -14,13 +14,25 @@ This repository is updated to UNITY 2022.3 and has its dependencies trimmed down
 
 ## Dependencies
 
-Please see the [README of the TelemetryDeck Unity C# SDK](https://github.com/TelemetryDeck/UnityCSharpSDK).
+Please see the [README of the TelemetryDeck Unity C# SDK](https://github.com/TelemetryDeck/UnityCSharpSDK).  
+`Newtonsoft.Json` dependcy is now easier to use as it is built-in UNITY Package Manager package.
 
 ## Cloning
 
 You must clone with submodules to receive a working Unity Project:
 
 `git clone https://github.com/jpetays/UnityCSharpSDK-Example.git --recurse-submodules`
+
+### Submodules
+
+We have a 'library' dependecy to UNITY TelemetryDeck SDK implementation here (in`.gitmodules`):
+
+````
+path = TelemetryClient/Assets/TelemetryClient
+url = https://github.com/conath/TelemetryClient-for-UnityCSharp.git
+````
+
+Alternatively you can copy required SDK files manully where you want or for example import UNITY package. 
 
 ## License
 
@@ -32,6 +44,5 @@ Of course, attribution is very much appreciated. <3
 
 ## 3rd Party Packages
 
-This project uses the [Newtonsoft.Json for Unity](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) package (aka Json.NET).
-
+This project uses the [Newtonsoft.Json for Unity](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) package (aka Json.NET).  
 It is built-in UNITY package.
