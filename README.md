@@ -10,6 +10,8 @@ This repository contains the development project for the TelemetryDeck Unity C# 
 
 To add TelemetryDeck to your project, please visit the [TelemetryDeck Unity C# SDK](https://github.com/conath/TelemetryClient-for-UnityCSharp/) repository.
 
+This repository is updated to UNITY 2022.3 and has its dependencies trimmed down to minimum.
+
 ## Dependencies
 
 Please see the [README of the TelemetryDeck Unity C# SDK](https://github.com/TelemetryDeck/UnityCSharpSDK).
@@ -32,6 +34,8 @@ This means you can use the Unity Package or source code in your projects without
 
 Of course, attribution is very much appreciated. <3
 
-## 3rd Party Licenses
+## 3rd Party Packages
 
-This project uses the [Newtonsoft.Json for Unity](https://github.com/jilleJr/Newtonsoft.Json-for-Unity) package (aka Json.NET), which is licensed unter The MIT License.
+This project uses the [Newtonsoft.Json for Unity](https://docs.unity3d.com/Packages/com.unity.nuget.newtonsoft-json@3.0/manual/index.html) package (aka Json.NET).
+
+It is built-in UNITY package.
