@@ -62,6 +62,10 @@ namespace TelemetryClient.TestApp.Scripts
             }
             Assert.IsTrue(!string.IsNullOrWhiteSpace(myTelemetrySettings.TelemetryAppId), "TelemetryAppId is required");
             Assert.IsTrue(!string.IsNullOrWhiteSpace(myTelemetrySettings.GenericUserId), "GenericUserId is required");
+            if (myTelemetrySettings.IsTestMode)
+            {
+                Debug.LogWarning("TelemetryDeck SDK Test Mode is enabled");
+            }
             var configuration = new TelemetryManagerConfiguration(myTelemetrySettings.TelemetryAppId);
             // anonymize the telemetry sent entirely by setting a generic user ID
             configuration.defaultUser = myTelemetrySettings.GenericUserId;

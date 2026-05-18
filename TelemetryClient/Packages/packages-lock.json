@@ -1,5 +1,14 @@
 {
   "dependencies": {
+    "com.telemetrydeck.unitycsharpsdk": {
+      "version": "https://github.com/jpetays/TelemetryDeckSDK.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.nuget.newtonsoft-json": "3.2.2"
+      },
+      "hash": "9ec39ba696e54460e61576da3f8f1868e3584019"
+    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
